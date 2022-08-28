@@ -2,7 +2,7 @@
 // import functions from "firebase-functions";
 import  express  from "express";
 import cors from "cors";
-import { getCrew, getVideos} from './src/Tasks.js';
+import { getCrew, getVideos, addCrew} from './src/Tasks.js';
 //import functions (get, post, update)
 
 const app = express();
@@ -11,8 +11,8 @@ app.use (express.json())
 
 //functions go here
 app.get('/crew',getCrew)
-app.get('/videos',getVideos)
-// app.post('/crew',addCrew)
+// app.get('/videos',getVideos)
+app.post('/crew',addCrew)
 // app.post('/videos', addVideo)
 
 
