@@ -1,8 +1,8 @@
 
-// import functions from "firebase-functions";
+import functions from "firebase-functions";
 import  express  from "express";
 import cors from "cors";
-import { getCrew, getVideos, addCrew} from './src/Tasks.js';
+import { getCrew, addCrew} from './src/Tasks.js';
 //import functions (get, post, update)
 
 const app = express();
@@ -16,9 +16,9 @@ app.post('/crew',addCrew)
 // app.post('/videos', addVideo)
 
 
-app.listen(4000,()=>{
-    console.log('listening')
-})
+// app.listen(4000,()=>{
+//     console.log('listening')
+// })
 
 
-// export const api = functions.https.onRequest(app)
+ export const api = functions.https.onRequest(app)
