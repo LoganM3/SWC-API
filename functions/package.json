@@ -18,8 +18,8 @@
     "db": "^3.3.1",
     "express": "^4.18.1",
     "firebase-admin": "^10.0.2",
-    "firebase-functions": "^3.18.0"
-   
+    "firebase-functions": "^3.18.0",
+    "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
     "firebase-functions-test": "^0.2.0"
