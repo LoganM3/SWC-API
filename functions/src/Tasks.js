@@ -19,11 +19,16 @@ export async function getCrew(req,res){
 }
 
 export async function addCrew(req,res){
-    const token = req.header.authorization;
     const newMember = req.body;
-    const user = jwt.verify(token,secretKey); 
+   const token = req.headers.authorization;
+   console.log(token)
+     // const user = jwt.verify(token,secretKey);
+     // if(!user) {
+       // res.status(401).send("must be an admin to post")
+       // return
+    //  }
    
-    newMember.userId = user.id;
+     // newMember.userId = user.id;
     const db = dbConnect();
     console.log(newMember)
     await db.collection('crew').add(newMember)
@@ -47,10 +52,10 @@ export async function getVideos(req,res){
 
     export async function addVideo(req,res){
     const newVideo = req.body;
-    // if (!newVideo || !newVideo.videos) {
-    //   res.status(400).send({ success: false, message: 'Invalid request' });
-    //   return;
-    // }
+    if (!newVideo || !newVideo.videos) {
+      res.status(400).send({ success: false, message: 'Invalid request' });
+      return;
+    }
     const db = dbConnect();
     await db.collection('videos').add(newVideo)
       .catch(err => res.status(500).send(err));
